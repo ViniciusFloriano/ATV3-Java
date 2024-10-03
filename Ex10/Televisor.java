@@ -38,11 +38,23 @@ public class Televisor {
 	}
 
 	public void aumentarVolume(int volume) {
-		this.volume += volume;
+		if (this.volume + volume > 100) {
+			int sobra = (this.volume + volume) - 100;
+			volume -= sobra;
+			this.volume += volume;
+		} else {
+			this.volume += volume;			
+		}
 	}
 	
 	public void diminuirVolume(int volume) {
-		this.volume -= volume;
+		if (this.volume - volume < 0) {
+			int falta = (this.volume - volume);
+			volume -= falta;
+			this.volume -= volume;
+		} else {
+			this.volume -= volume;			
+		}
 	}
 
 	@Override
